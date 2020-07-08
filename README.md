@@ -1,4 +1,6 @@
-# calc.vue || task from Artyom
-# download script.js and index.html
+# calc.vue 
+calc.vue || task from Artyom
 
-# run index.html
+download script.js and index.html
+
+run index.html
