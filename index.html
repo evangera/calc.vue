@@ -15,10 +15,10 @@
       <button v-on:click="n2 *= 4"> x4 </button>
       <br>
 
-      res1: <input v-bind:value="calc(1.00)" v-on:input="reset"> <br>
-      res2: <input v-bind:value="calc(1.13)" v-on:input="reset"> <br>
-      res3: <input v-bind:value="calc(1.17)" v-on:input="reset"> <br>
-      <button v-on:click="reset">C</button>
+      res1: <input v-bind:value="(Number(n1) + Number(n2)) * 1.00" v-on:input="n1=0; n2=0"> <br>
+      res2: <input v-bind:value="(Number(n1) + Number(n2)) * 1.13" v-on:input="n1=0; n2=0"> <br>
+      res3: <input v-bind:value="(Number(n1) + Number(n2)) * 1.17" v-on:input="n1=0; n2=0"> <br>
+      <button v-on:click="n1=0; n2=0">C</button>
 
     </div>
   </div>
@@ -33,15 +33,6 @@
     result1: 0,
     result2: 0,
     result3: 0
-  },
-  methods: {
-    reset: function() {
-      this.n1 = 0;
-      this.n2 = 0;
-    },
-    calc: function(tax) {
-      return (Number(this.n1) + Number(this.n2)) * Number(tax);
-    }
   }
 })
 </script>
