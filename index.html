@@ -5,19 +5,19 @@
 <body>
   <div id="app">
     <div>   
-      input 1<input v-model="n1"> 
+      input 1<input v-model="n1" placeholder='0'> 
       <button v-on:click="n1 *= 10"> x10 </button>
-      <button v-on:click="n1 *= 100">x100</button>
+      <button v-on:click="n1 * = 100">x100</button>
       <br>
 
-      input 2<input v-model="n2">
+      input 2<input v-model="n2" placeholder='0'>
       <button v-on:click="n2 *= 2"> x2 </button>
       <button v-on:click="n2 *= 4"> x4 </button>
       <br>
 
-      res1: <input v-bind:value="calc(1.00)" v-on:input="reset"> <br>
-      res2: <input v-bind:value="calc(1.13)" v-on:input="reset"> <br>
-      res3: <input v-bind:value="calc(1.17)" v-on:input="reset"> <br>
+      res1: <input v-bind:value="calc(1.00)" v-on:input="reset" placeholder='0'> <br>
+      res2: <input v-bind:value="calc(1.13)" v-on:input="reset" placeholder='0'> <br>
+      res3: <input v-bind:value="calc(1.17)" v-on:input="reset" placeholder='0'> <br>
       <button v-on:click="reset">C</button>
 
     </div>
@@ -28,16 +28,16 @@
   var vue = new Vue({
   el: '#app',
   data: {
-    n1: 0,
-    n2: 0,
-    result1: 0,
-    result2: 0,
-    result3: 0
+    n1: '',
+    n2: '',
+    result1: '',
+    result2: '',
+    result3: '',
   },
   methods: {
     reset: function() {
-      this.n1 = 0;
-      this.n2 = 0;
+      this.n1 = '';
+      this.n2 = '';
     },
     calc: function(tax) {
       return (Number(this.n1) + Number(this.n2)) * Number(tax);
