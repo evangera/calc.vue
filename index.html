@@ -1,25 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8">
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <title>Calculator</title>
 </head>
 <body>
   <div id="app">
-    <div class="grid">
-      <p><input @keyup.enter="calc()" type="text" v-model="n1" @input="calc" placeholder="0"> 
-      <button @click="multiply10()">x10</button>
-      <button @click="multiply100()">x100</button></p>
-      <p><input @keyup.enter="calc()" type="text" v-model="n2" @input="calc" placeholder="0">
-      <button @click="multiply2()">x2</button>
-      <button @click="multiply4()">x4</button></p>
-      <p><input @keyup.enter="calc()" type="text" v-model="result" @input="reset" placeholder="0">
-      <p><input @keyup.enter="calc()" type="text" v-model="result2" @input="reset" placeholder="0">
-      <p><input @keyup.enter="calc()" type="text" v-model="result3" @input="reset" placeholder="0"></p>
-      <button @click="reset()">C</button>
+    <div>   
+      input 1<input v-model="n1"> 
+      <button v-on:click="n1 *= 10"> x10 </button>
+      <button v-on:click="n1 *= 100">x100</button>
+      <br>
+
+      input 2<input v-model="n2">
+      <button v-on:click="n2 *= 2"> x2 </button>
+      <button v-on:click="n2 *= 4"> x4 </button>
+      <br>
+
+      res1: <input v-bind:value="(Number(n1) + Number(n2)) * 1.00" v-on:input="n1=0; n2=0"> <br>
+      res2: <input v-bind:value="(Number(n1) + Number(n2)) * 1.13" v-on:input="n1=0; n2=0"> <br>
+      res3: <input v-bind:value="(Number(n1) + Number(n2)) * 1.17" v-on:input="n1=0; n2=0"> <br>
+      <button v-on:click="n1=0; n2=0">C</button>
+
     </div>
   </div>
 </body>
-<script src="script.js"></script>
+
+<script>
+  var vue = new Vue({
+  el: '#app',
+  data: {
+    n1: 0,
+    n2: 0,
+    result1: 0,
+    result2: 0,
+    result3: 0
+  }
+})
+</script>
 </html>
