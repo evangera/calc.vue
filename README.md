@@ -1,6 +1,6 @@
 # calc.vue 
 calc.vue || task from Artyom
 
-download index.html
+download index.html and style.css
 
 run index.html
