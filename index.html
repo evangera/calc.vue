@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calculator</title>
+</head>
+<body>
+  <div id="app">
+    <div class="grid">
+            number 1⠀⠀<input v-model="n1" placeholder='0'> 
+            <button v-on:click="n1 *= 10" class="multiply op"> x10 </button>
+            <button v-on:click="n1 *= 100" class="multiply op">x100</button>
+            <br>
+            number 2⠀⠀<input v-model="n2" placeholder='0'>
+            <button v-on:click="n2 *= 2" class="multiply op"> x2 </button>
+            <button v-on:click="n2 *= 4" class="multiply op"> x4 </button>
+            <br>
+            result1⠀⠀⠀⠀<input v-bind:value="calc(1.00)" v-on:input="reset" placeholder='0'> <br>
+            result+13%⠀<input v-bind:value="calc(1.13)" v-on:input="reset" placeholder='0'> <br>
+            result+17%⠀<input v-bind:value="calc(1.17)" v-on:input="reset" placeholder='0'> <br>
+            <button v-on:click="reset" class="cell op">C</button>
+      
+    </div>
+  </div>
+</body>
+<script>
+var vue = new Vue({
+    el: '#app',
+    data: {
+      n1: '',
+      n2: '',
+      result1: '',
+      result13: '',
+      result17: ''
+    },
+    methods: {
+      reset: function() {
+        this.n1 = '';
+        this.n2 = '';
+      },
+      calc: function(tax) {
+        return (Number(this.n1) + Number(this.n2)) * Number(tax);
+      }
+    }
+  }) 
+  </script>
+
+
+</html>
